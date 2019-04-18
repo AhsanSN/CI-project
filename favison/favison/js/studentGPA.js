@@ -14,6 +14,8 @@ $('#btncld').click(function() {
     console.log("asdasdasd")
 });
 
+crI = []
+allCourseGrades = []
 
 $('#calcGPA').click(function() {
     //console.log("calcGPA")
@@ -24,10 +26,54 @@ $('#calcGPA').click(function() {
     	var b = $('#allFields').find('input[name="cr_'+i+'"]').val();
     	percI.push(a)
     	crI.push(b)
+
+    	allCourseGrades.push(GPAfromPoint(a))
     }
     console.log(percI)
     console.log(crI)
 
 });
 
+
+points = [55, 61  , 64.5, 68.5, 72.5, 77.5, 82.5, 87.5, 92.5, 97.5] //x
+gpa = 	 [0 , 1.67, 2   , 2.33, 2.67, 3   , 3.33, 3.67, 4   , 4   ] //y
+
+
+function GPAfromPoint(point){
+	GPA = 0
+	for (var i = 0; i <points.length; i++) {
+		if(point>points[i] && point<points[i+1] ){
+
+			//first overlap
+			m = (gpa[i+1]-0)/(points[i+1]-points[i])
+			y = (m*(point - points[i])) + 0
+			GPA = y
+
+			//second overlap
+			m = (0-gpa[i])/(points[i+1]-points[i])
+			y = (m*(point - points[i])) + gpa[i]
+			GPA += y
+		}
+	}
+	console.log(GPA)
+	return GPA
+}
+
+GPAfromPoint(70)
+
+function calculateGPAfromAllCourses(){
+
+	console.log("allCourseGrades", allCourseGrades)
+	totalGradePoints = 0
+	totalCreditHours = 0
+	for (var i = 0; i <nFields; i++) {
+		totalGradePoints+= allCourseGrades[i] * crI[i]
+		totalCreditHours+= crI[i]
+	}
+
+	gpa = totalGradePoints/totalCreditHours
+	console.log("calculated overall GPA", gpa)
+}
+
+calculateGPAfromAllCourses()
 
