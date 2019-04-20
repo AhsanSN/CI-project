@@ -53,17 +53,59 @@ $('#calcGPA').click(function() {
 
 
     //caluate score
-    if(isShowing){
+    console.log("isShowing", isShowing)
+    if(isShowing==true){
     	var total = 0
     	var a_3 = (a_1/100)*a_2
     	var b_3 = (b_1/100)*b_2
     	var c_3 = (c_1/100)*c_2
     	var d_3 = (d_1/100)*d_2
+    	var e_3 = (getScoreFromPoints_pres_parti(e_1)/100)*e_2
+    	var f_3 = (getScoreFromPoints_pres_parti(f_1)/100)*f_2
+
+    	total  =a_3+b_3+c_3+d_3+e_3+f_3
+    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total
+		document.getElementById("gpaBlock").style.display = "block"
+    }
+    if(isShowing==false){
+    	var total = 0
+    	var a_3 = parseInt(a_1)
+    	var b_3 = parseInt(b_1)
+    	var c_3 = parseInt(c_1)
+    	var d_3 = parseInt(d_1)
+    	var e_3 = (getScoreFromPoints_pres_parti(e_1)/100)*e_2
+    	var f_3 = (getScoreFromPoints_pres_parti(f_1)/100)*f_2
+
+    	total  =a_3+b_3+c_3+d_3+e_3+f_3
+    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total
+		document.getElementById("gpaBlock").style.display = "block"
     }
 });
 
 function getScoreFromPoints_pres_parti(points){
-
+	var score=0;
+	if(points==1){
+		score = 40;
+	}
+	if(points==2){
+		score = 60;
+	}
+	if(points==3){
+		score = 70;
+	}
+	if(points==4){
+		score = 80;
+	}
+	if(points==5){
+		score = 87;
+	}
+	if(points==6){
+		score = 92;
+	}
+	if(points==7){
+		score = 97;
+	}
+	return score
 }
 
 
