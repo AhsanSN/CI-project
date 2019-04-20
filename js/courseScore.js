@@ -43,10 +43,10 @@ $('#calcGPA').click(function() {
     var d_1 = $('#allFields').find('input[name="final_total"]').val();
     var d_2 = $('#allFields').find('input[name="final_weight"]').val();
 
-    var e_1 = $('#parti_total').find(":selected").text();
+    var e_1 = $('#parti_total').find(":selected").val();
     var e_2 = $('#allFields').find('input[name="parti_weight"]').val();
 
-    var f_1 = $('#pres_total').find(":selected").text();
+    var f_1 = $('#pres_total').find(":selected").val();
     var f_2 = $('#allFields').find('input[name="pres_weight"]').val();
 
     console.log(a_1, a_2, b_1, b_2,c_1,c_2,d_1,d_2,e_1,e_2,f_1,f_2)
@@ -54,12 +54,17 @@ $('#calcGPA').click(function() {
 
     //caluate score
     if(isShowing){
+    	var total = 0
     	var a_3 = (a_1/100)*a_2
     	var b_3 = (b_1/100)*b_2
     	var c_3 = (c_1/100)*c_2
     	var d_3 = (d_1/100)*d_2
     }
 });
+
+function getScoreFromPoints_pres_parti(points){
+
+}
 
 
 
