@@ -72,11 +72,15 @@ function calculateGPAfromAllCourses(allCourseGrades, crI){
 	totalGradePoints = 0
 	totalCreditHours = 0
 	for (var i = 0; i <nFields; i++) {
-		totalGradePoints+= (allCourseGrades[i] * crI[i])
-		totalCreditHours+= crI[i]
+		console.log("i", i)
+		totalGradePoints+= (allCourseGrades[i] * parseInt(crI[i]))
+		totalCreditHours+= parseInt(crI[i])
 	}
+
 	gpa = totalGradePoints/totalCreditHours
 	console.log("calculated overall GPA", gpa)
+	document.getElementById("gpaBlock").innerHTML = "Your GPA is "+gpa
+	document.getElementById("gpaBlock").style.display = "block"
 }
 
 
