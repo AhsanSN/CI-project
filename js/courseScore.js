@@ -51,7 +51,6 @@ $('#calcGPA').click(function() {
 
     console.log(a_1, a_2, b_1, b_2,c_1,c_2,d_1,d_2,e_1,e_2,f_1,f_2)
 
-
     //caluate score
     console.log("isShowing", isShowing)
     if(isShowing==true){
@@ -109,7 +108,11 @@ function getScoreFromPoints_pres_parti(points){
 }
 
 
+function labelFromOverallScore(score){
+	label = ["Really bad", "Below Average","Average", "Good","Really Good","Impressive", "Beyond expectations!"]
 
+	points = [55, 61  , 64.5, 68.5, 72.5, 77.5, 82.5, 87.5, 92.5, 97.5] //x
+}
 
 //GPAfromPoint(70)
 
