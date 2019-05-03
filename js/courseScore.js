@@ -63,8 +63,10 @@ $('#calcGPA').click(function() {
     	var f_3 = (getScoreFromPoints_pres_parti(f_1)/100)*f_2
 
     	total  =a_3+b_3+c_3+d_3+e_3+f_3
-    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total
+    	wordComments = labelFromOverallScore(total)
+    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total.toString().slice(0, 5)+"<br>"+wordComments
 		document.getElementById("gpaBlock").style.display = "block"
+
     }
     if(isShowing==false){
     	var total = 0
@@ -76,7 +78,8 @@ $('#calcGPA').click(function() {
     	var f_3 = (getScoreFromPoints_pres_parti(f_1)/100)*f_2
 
     	total  =a_3+b_3+c_3+d_3+e_3+f_3
-    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total
+    	wordComments = labelFromOverallScore(total)
+    	document.getElementById("gpaBlock").innerHTML = "Student score is "+total.toString().slice(0, 5)+"<br>"+wordComments
 		document.getElementById("gpaBlock").style.display = "block"
     }
 });
@@ -108,15 +111,27 @@ function getScoreFromPoints_pres_parti(points){
 }
 
 
-function labelFromOverallScore(score){
+function labelFromOverallScore(point){
 	label = ["Really bad", "Below Average","Average", "Good","Really Good","Impressive", "Beyond expectations!"]
-
 	points = [55, 61  , 64.5, 68.5, 72.5, 77.5, 82.5, 87.5, 92.5, 97.5] //x
+
+	
+	GPA = 0
+	for (var i = 0; i <points.length; i++) {
+		
+		if(point>points[i] && point<points[i+1] ){
+
+			a=point/(points[i+1]-points[i])
+			b = ("Student score is "+label[i]+" at "+a.toString().slice(0, 5)+"% and "+label[i+1]+" at "+(100-a).toString().slice(0, 5)+"%");
+			return b
+		}
+	}
 }
 
 //GPAfromPoint(70)
 
 function GPAfromPoint(point){
+	label = ["Really bad", "Below Average","Average", "Good","Really Good","Impressive", "Beyond expectations!"]
 	points = [55, 61  , 64.5, 68.5, 72.5, 77.5, 82.5, 87.5, 92.5, 97.5] //x
 	gpa = 	 [0 , 1.67, 2   , 2.33, 2.67, 3   , 3.33, 3.67, 4   , 4   ] //y
 

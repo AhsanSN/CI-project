@@ -64,11 +64,28 @@ function GPAfromPoint(point){
 	return GPA
 }
 
+function labelFromOverallScore(point){
+	label = ["Really bad","Bad",  "Below Average","Average", "Good","Really Good","Impressive", "Beyond expectations!", "Spectacular!"]
+	gpaScale = 	 [0 , 1.67, 2   , 2.33, 2.67, 3   , 3.33, 3.67, 4   , 4   ] //y
+
+	
+	GPA = 0
+	for (var i = 0; i <gpaScale.length; i++) {
+		
+		if(point>gpaScale[i] && point<gpaScale[i+1] ){
+
+			a=point/(gpaScale[i+1]-gpaScale[i])
+			b = ("Student score is "+label[i]+" at "+a.toString().slice(0, 5)+"% and "+label[i+1]+" at "+(100-a).toString().slice(0, 5)+"%");
+			return b
+		}
+	}
+}
 
 function calculateGPAfromAllCourses(allCourseGrades, crI){
 
 	gpa = 0
 	console.log("allCourseGrades", allCourseGrades)
+
 	totalGradePoints = 0
 	totalCreditHours = 0
 	for (var i = 0; i <nFields; i++) {
@@ -78,8 +95,11 @@ function calculateGPAfromAllCourses(allCourseGrades, crI){
 	}
 
 	gpa = totalGradePoints/totalCreditHours
-	console.log("calculated overall GPA", gpa)
-	document.getElementById("gpaBlock").innerHTML = "Your GPA is "+gpa
+	
+	//console.log("calculated overall GPA", gpa)
+	gpaComment = labelFromOverallScore(gpa)
+	console.log("gpaComment"+gpaComment)
+	document.getElementById("gpaBlock").innerHTML = "Your GPA is "+gpa.toString().slice(0, 4)+" <br> "+gpaComment
 	document.getElementById("gpaBlock").style.display = "block"
 }
 
