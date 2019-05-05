@@ -23,4 +23,27 @@ After the system will be ready it will be tested with some data. A grades of all
 
 A method implemented on a website to compute GPA for any arbitrary list of grades based on Fuzzy mathematics. The whole system will have two layers. First one is where the instructors directly put in the overall percentages of the course obtained by a particular student, and the final GPA is calculated based on that. The second layer that is optional to use, but a professor may use is, instead of directly putting in the overall percentage, the professor can put in marks on assignments, percentages, quizzes, exams, etc. for a course, and the overall course percentage is calculated based on that data using fuzzy logic. After the system will be ready it will be tested with some data. A grades of all the course in the previous semester of some Habib university students will be gathered, and their computed GPA will be compared with the GPA calculated using the traditional method to find the trends.
 	
+### Screeenshots
+
+<table>
+  <tbody>
+    <tr>
+      <!-- Video 1 -->
+      <td align="center">
+          <img width="290" alt="FamiChat" src="/screenshots/Screenshot%20(1251).png">
+          <br>
+      </td>
+      <!-- Video 2 -->
+      <td align="center">
+          <img width="290" alt="FamiChat" src="/screenshots/Screenshot%20(1252).png">
+          <br>
+      </td>
+      <!-- Video 3 -->
+      <td align="center">
+          <img width="290" alt="FamiChat" src="/screenshots/Screenshot%20(1253).png">
+          <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
